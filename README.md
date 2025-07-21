@@ -287,6 +287,7 @@ Screenshot of Column Names
  
 
 
+<img width="1920" height="1080" alt="Screenshot of Column Names" src="https://github.com/user-attachments/assets/914c4592-1db5-4227-90b1-0fe34ca1fc9a" />
 
 ####🔧 Step-by-Step: Clean & Prep for ML in Jupyter
 
@@ -315,14 +316,21 @@ df.columns = [
     'AcceptedCmp5', 'AcceptedCmp1', 'AcceptedCmp2', 'Response'
 ]
 df.head()
+
+<img width="1205" height="744" alt="Assign Column Names manually  Based on Screenshot of Column Names image" src="https://github.com/user-attachments/assets/b563f07a-5f8c-46bf-b6aa-4a915bc908b0" />
+
+
 #### ✅ Step 3: Convert Date Column to datetime
 df['Dt_Customer'] = pd.to_datetime(df['Dt_Customer'])
+
 #### ✅ Step 4: Handle Missing or Negative Income
 # Replace negative income with NaN and drop them
 
 df['Income'] = df['Income'].apply(lambda x: x if x > 0 else None)
 df.dropna(subset=['Income'], inplace=True)
+
 ### 🔢 PART 1: Linear Regression
+
 #### 🎯 Predict income using other features
 
 from sklearn.linear_model import LinearRegression
@@ -350,6 +358,9 @@ lr.fit(X_train, y_train)
 print("R^2 Score:", lr.score(X_test, y_test))
 Output:
 R^2 Score: 0.127186987101495
+
+<img width="1170" height="572" alt="Linear Regression Score" src="https://github.com/user-attachments/assets/a691198b-981c-459a-ae76-b7db1b708528" />
+
 
 ### 📊 PART 2: KMeans Clustering
 ### 🎯 Group customers based on spending behavior
@@ -385,6 +396,9 @@ df['Cluster'] = kmeans.fit_predict(X_kmeans)
 
 df[['Cluster'] + X_kmeans.columns.tolist()].head()
 
+<img width="1013" height="671" alt="KMeans Clustering - Group customers based on spending behavior" src="https://github.com/user-attachments/assets/fd359050-287c-417f-9f6b-7644c45a759b" />
+
+
 #### 📈 PART 3: ARIMA (Time Series)
 #### 🎯 Forecast overall wine spending over time
 import matplotlib.pyplot as plt
@@ -407,4 +421,5 @@ forecast = model_fit.forecast(steps=6)
 
 print("Next 6 months forecast:")
 print(forecast)
+<img width="815" height="619" alt="ARIMA (Time Series) Forecast overall wine spending over time" src="https://github.com/user-attachments/assets/dd7cc034-9fb9-4e2a-a68f-c49020bf9dbd" />
 
