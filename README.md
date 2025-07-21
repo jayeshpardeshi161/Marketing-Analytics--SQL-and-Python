@@ -4,45 +4,45 @@ ________________________________________
 This project aims to analyze customer purchase behavior, sales performance, and profitability using a blend of SQL for data preparation and exploratory analysis, Python for predictive modeling and segmentation, and (optionally) Power BI for dashboarding. It extracts actionable insights to optimize sales strategies, marketing efforts, and product offerings.
 ________________________________________
 ## 📦 2. Dataset Overview
-•	Source: Exported from SQL Server (SSMS) using SELECT TOP 1000
-•	File: superstore_cleaned.csv
-•	Size: 1,000 rows, 26 columns
-•	Type: Tabular, transactional
-•	Date Range: Customer acquisition data from 2021–2022
-•	Features: Customer demographics, sales amounts by product category, income, recency, response to campaigns, and visit behavior
+1.	Source: Exported from SQL Server (SSMS) using SELECT TOP 1000
+2.	File: superstore_cleaned.csv
+3.	Size: 1,000 rows, 26 columns
+4.	Type: Tabular, transactional
+5.	Date Range: Customer acquisition data from 2021–2022
+6.	Features: Customer demographics, sales amounts by product category, income, recency, response to campaigns, and visit behavior
 ________________________________________
 ## 🎯 3. Project Goal
-•	Clean and transform raw transactional sales data using SQL
-•	Perform exploratory data analysis (EDA) to uncover hidden patterns
-•	Apply machine learning models in Python for:
-o	Predicting income levels
-o	Segmenting customers using clustering
-o	Forecasting sales trends over time
-•	Support data-driven decisions for marketing and operational strategy
+1.	Clean and transform raw transactional sales data using SQL
+2.	Perform exploratory data analysis (EDA) to uncover hidden patterns
+3.	Apply machine learning models in Python for:
+4.	Predicting income levels
+5.	Segmenting customers using clustering
+6.	Forecasting sales trends over time
+7.	Support data-driven decisions for marketing and operational strategy
 ________________________________________
 ## 🔍 4. Problem Statement
 How can a business use historical customer and sales data to:
-•	Improve profitability?
-•	Identify high-value customers and regions?
-•	Optimize discount and campaign strategies?
-•	Predict future sales patterns?
+1.	Improve profitability?
+2.	Identify high-value customers and regions?
+3.	Optimize discount and campaign strategies?
+4.	Predict future sales patterns?
 ________________________________________
 ## 📊 5. KPIs (Key Performance Indicators)
-•	✅ Total Sales
-•	✅ Total Profit
-•	✅ Profit Margin %
-•	✅ Average Discount %
-•	✅ Customer Segmentation (by education, marital status, etc.)
-•	✅ Monthly Sales Trends
-•	✅ Top Products by Sales and Profit
+1.	✅ Total Sales
+2.	✅ Total Profit
+3.	✅ Profit Margin %
+4.	✅ Average Discount %
+5.	✅ Customer Segmentation (by education, marital status, etc.)
+6.	✅ Monthly Sales Trends
+7.	✅ Top Products by Sales and Profit
 ________________________________________
 ## 📈 6. Chart Requirements (Optional: Power BI)
-•	Line Chart: Monthly Wine Sales and Profit
-•	Bar Chart: Spend by Category
-•	Pie Chart: Orders by Segment
-•	Heatmap: Discount vs Profitability
-•	Map: Regional Spend/Profit (if regional data exists)
-•	Table: Top 10 Customers or Products by Profit
+1.	Line Chart: Monthly Wine Sales and Profit
+2.	Bar Chart: Spend by Category
+3.	Pie Chart: Orders by Segment
+4.	Heatmap: Discount vs Profitability
+5.	Map: Regional Spend/Profit (if regional data exists)
+6.	Table: Top 10 Customers or Products by Profit
 ________________________________________
 ## 🧠 7. Exploratory Data Analysis (EDA) in SQL
 ### ✅ EDA Steps Performed:
@@ -60,55 +60,55 @@ o	CustomerYear and CustomerMonth from Dt_Customer
 ________________________________________
 ## 🔢 8. Modeling (Python - Step 14 Implementation)
 #### 📌 A. Linear Regression: Income Prediction
-•	Goal: Predict customer income using features like spending, family size, and education
-•	Tools: LinearRegression from scikit-learn
-•	Preprocessing: Label-encoding of categorical features
-•	Model Score: R² = 0.127 (Baseline, low due to high income variability)
+1.	Goal: Predict customer income using features like spending, family size, and education
+2.	Tools: LinearRegression from scikit-learn
+3.	Preprocessing: Label-encoding of categorical features
+4.	Model Score: R² = 0.127 (Baseline, low due to high income variability)
 ________________________________________
 #### 📌 B. KMeans Clustering: Customer Segmentation
-•	Goal: Cluster customers based on product purchase behavior
-•	Input Features: MntWines, MntFruits, MntMeatProducts, etc.
-•	Elbow Method: Chose k=3
-•	Output: Cluster labels added to dataset for segmentation
+1.	Goal: Cluster customers based on product purchase behavior
+2.	Input Features: MntWines, MntFruits, MntMeatProducts, etc.
+3.	Elbow Method: Chose k=3
+4.	Output: Cluster labels added to dataset for segmentation
 ________________________________________
 #### 📌 C. ARIMA Time Series Forecasting: Wine Sales
-•	Goal: Forecast next 6 months of wine sales
-•	Method: ARIMA(1,1,1)
-•	Data: Monthly sum of MntWines, resampled by customer join date
-•	Result: Successfully forecasted wine spending; deprecated frequency warning fixed by switching from 'M' to 'ME'
+1.	Goal: Forecast next 6 months of wine sales
+2.	Method: ARIMA(1,1,1)
+3.	Data: Monthly sum of MntWines, resampled by customer join date
+4.	Result: Successfully forecasted wine spending; deprecated frequency warning fixed by switching from 'M' to 'ME'
 ________________________________________
 ### 🔍 9. Key Findings
-•	📉 High discounts often correlated with lower profits
-•	🏆 Certain products (e.g., wines) dominate customer spending
-•	👨‍👩‍👧 Customers with higher education and married status tend to spend more
-•	📆 New customer acquisition has seasonal spikes
-•	🧊 Outliers include customers with unrealistically high income or recent/future acquisition dates
+1.	📉 High discounts often correlated with lower profits
+2.	🏆 Certain products (e.g., wines) dominate customer spending
+3.	👨‍👩‍👧 Customers with higher education and married status tend to spend more
+4.	📆 New customer acquisition has seasonal spikes
+5.	🧊 Outliers include customers with unrealistically high income or recent/future acquisition dates
 ________________________________________
 ### 📋 10. Inference & Business Decisions
 Based on analysis:
-•	🔒 Limit discounts on high-performing products to preserve margins
-•	🎯 Target high-value segments (e.g., married, educated)
-•	📈 Use sales trends to stock products in advance of high seasons
-•	📣 Personalize marketing based on clusters discovered via KMeans
+1.	🔒 Limit discounts on high-performing products to preserve margins
+2.	🎯 Target high-value segments (e.g., married, educated)
+3.	📈 Use sales trends to stock products in advance of high seasons
+4.	📣 Personalize marketing based on clusters discovered via KMeans
 ________________________________________
 ### 📌 11. Conclusion
 This project demonstrates how structured sales data can be cleaned, analyzed, and modeled to inform strategic decisions. SQL served as the backbone for EDA and preparation, while Python extended the analysis with predictive modeling and clustering.
 ________________________________________
 ### 🧭 12. Future Work
-•	🌐 Integrate real-time data with Power BI dashboards
-•	🤖 Enhance regression models with feature engineering or nonlinear algorithms (e.g., XGBoost)
-•	⏱ Automate SQL-to-Python pipeline for monthly reporting
-•	📤 Use cluster labels in marketing campaigns and A/B tests
+1.	🌐 Integrate real-time data with Power BI dashboards
+2.	🤖 Enhance regression models with feature engineering or nonlinear algorithms (e.g., XGBoost)
+3.	⏱ Automate SQL-to-Python pipeline for monthly reporting
+4.	📤 Use cluster labels in marketing campaigns and A/B tests
 ________________________________________
 ### 💼 Final Deliverables
-Component	Tool	Status
-Data Cleaning & EDA	SQL	✅ Completed
-Income Prediction	Python (Linear Regression)	✅ Completed
-Customer Segmentation	Python (KMeans)	✅ Completed
-Time Series Forecasting	Python (ARIMA)	✅ Completed
-Data Export from SQL	SSMS to CSV	✅ Completed
-Visualization	Power BI (optional)	❌ Skipped (as per scope)
-SQL & Python Steps Below : 
+1. Component	Tool	Status
+2. Data Cleaning & EDA	SQL	✅ Completed
+3. Income Prediction	Python (Linear Regression)	✅ Completed
+4. Customer Segmentation	Python (KMeans)	✅ Completed
+5. Time Series Forecasting	Python (ARIMA)	✅ Completed
+6. Data Export from SQL	SSMS to CSV	✅ Completed
+7. Visualization	Power BI (optional)	❌ Skipped (as per scope)
+8. SQL & Python Steps Below : 
 
 ### ✅ Exploratory Data Analysis & Cleaning Steps in SQL
 
