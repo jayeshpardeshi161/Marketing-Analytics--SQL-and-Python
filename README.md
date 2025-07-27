@@ -110,7 +110,7 @@ ________________________________________
 7. Visualization	Power BI (optional)	❌ Skipped (as per scope)
 8. SQL & Python Steps Below : 
 
---
+________________________________________
 
 ## ✅ Exploratory Data Analysis & Cleaning Steps in SQL (SSMS21)
 
@@ -161,6 +161,7 @@ ________________________________________
 | ------------ | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 12           | Standardize text in categorical columns | `sql<br>UPDATE SalesDB.dbo.superstore_data<br>SET<br>&nbsp;&nbsp;Education = UPPER(LTRIM(RTRIM(Education))),<br>&nbsp;&nbsp;Marital_Status = UPPER(LTRIM(RTRIM(Marital_Status)));` | I cleaned categorical text fields by trimming whitespace and converting all values to uppercase. This avoids case-sensitive mismatches and ensures consistency for grouping or encoding. |
 
+
 ✅ 8. Derived Columns
 
 | **Step No.** | **Objective**                             | **My SQL Query (Condensed)**                                                                                                                                                                                     | **What I Did**                                                                                                                                               |
@@ -169,6 +170,7 @@ ________________________________________
 | 14           | Create `TotalSpend` as a computed column  | `sql<br>ALTER TABLE superstore_data ADD TotalSpend AS (MntWines + MntFruits + MntMeatProducts + MntFishProducts + MntSweetProducts + MntGoldProds);`                                                             | I created a computed column `TotalSpend` to represent total customer expenditure across all product categories.                                              |
 | 15           | Modify and update `ProfitMargin` field    | `sql<br>ALTER TABLE superstore_data ALTER COLUMN ProfitMargin DECIMAL(12,4);<br>UPDATE superstore_data SET ProfitMargin = CASE WHEN TotalSpend = 0 THEN NULL ELSE (TotalSpend - Income) / TotalSpend * 100 END;` | I calculated `ProfitMargin` as a percentage of income over total spend, ensuring division-by-zero errors were avoided by handling zero-spend cases.          |
 | 16           | Extract year and month from `Dt_Customer` | `sql<br>UPDATE superstore_data SET CustomerYear = YEAR(TRY_CAST(Dt_Customer AS date)), CustomerMonth = MONTH(TRY_CAST(Dt_Customer AS date));`                                                                    | I added time-based dimensions (`CustomerYear`, `CustomerMonth`) from the `Dt_Customer` field, useful for grouping, filtering, or time series trend analysis. |
+
 
 ✅ 9. Segmentation & Aggregation
 
@@ -180,11 +182,9 @@ ________________________________________
 | 20           | Preview cleaned and final dataset   | `sql<br>SELECT TOP 1000 * FROM SalesDB.dbo.superstore_data;`                                                                                                                                                                                              | I viewed a sample of the cleaned and feature-rich dataset, verifying that fields like `TotalSpend`, `ProfitMargin`, and `CustomerYear/Month` are correctly populated. |
 
 
---
-
 <img width="1920" height="1080" alt="Screenshot of Column Names" src="https://github.com/user-attachments/assets/914c4592-1db5-4227-90b1-0fe34ca1fc9a" />
 
---
+________________________________________
 
 ## 📊 Project Step: Data Loading and Initial Inspection
 
@@ -203,6 +203,7 @@ I exported from SSMS 21 via "Select Top 1000 Rows", the CSV probably doesn't inc
 
 
 <img width="1920" height="1080" alt="Screenshot of Column Names" src="https://github.com/user-attachments/assets/c0d7cc35-f0c1-48f0-aa71-ab867e8c0f13" />
+
 
 ✅ Step 2: Add Meaningful Column Names
 | **Step No.** | **Objective**                            | **My Action (in Python)**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | **What I Did**                                                                                                                                       |
@@ -257,6 +258,8 @@ Output: R^2 Score: 0.127186987101495
 
 <img width="1136" height="759" alt="Step 7 ARIMA Time Series" src="https://github.com/user-attachments/assets/9173a0c3-5941-42f4-9dc9-08e5da2bcaa3" />
 
+________________________________________
+
 ✅ Project Summary – Customer Sales & Marketing Analytics
 
 | **Phase**                        | **Tasks Completed**                                                                                                    |
@@ -268,6 +271,8 @@ Output: R^2 Score: 0.127186987101495
 | **5. Clustering (Segmentation)** | ✔ Used KMeans to group customers by spending behavior<br>✔ Determined `k` via elbow method                             |
 | **6. Time Series Forecasting**   | ✔ Used ARIMA to forecast future wine spending based on customer acquisition dates                                      |
 | **7. Visualization**             | ✔ Visualized elbow curve, time series data, and regression results                                                     |
+
+________________________________________
 
 ## ✅ 📊 Project: Customer Sales & Marketing Analytics Using SQL and Python
 
@@ -283,6 +288,9 @@ Output: R^2 Score: 0.127186987101495
 | EDA & Segmentation in SQL                         | ✅ Completed | Aggregated by education, marital status, and time; discovered key trends                     |
 | Optional Visualization (Power BI)                 | ❌ Skipped   | Clearly marked as optional and out of current project scope                                  |
 
+________________________________________
+
+
 ## 📋 2. Deliverables Checklist
 
 | **Deliverable**                       | **Tool**           | **Status** |
@@ -294,6 +302,8 @@ Output: R^2 Score: 0.127186987101495
 | Cleaned Dataset Export                | SQL → CSV → Python | ✅ Done     |
 | Optional Dashboard                    | Power BI           | ❌ Skipped  |
 
+________________________________________
+
 ## 📌 3. Final Verdict: ✅ Project Completed
 
 1. A clear project objective and problem statement
@@ -301,7 +311,8 @@ Output: R^2 Score: 0.127186987101495
 3. Robust Python modeling steps (regression, clustering, time series)
 4. Demonstrated insight extraction and business recommendations
 
---
+________________________________________
+
 
 1. Designed and implemented a comprehensive customer sales analytics pipeline combining SQL and Python, improving data accuracy and enabling predictive modeling on 1,000+ customer records.
 2. Cleaned and transformed raw sales data in SQL Server, resolving data inconsistencies and removing duplicates to enhance dataset quality by 100%.
@@ -312,10 +323,13 @@ Output: R^2 Score: 0.127186987101495
 7. Performed exploratory data analysis (EDA) and segmentation in SQL, uncovering key customer trends related to education, marital status, and spending habits.
 8. Exported and integrated cleaned SQL data into Python for modeling, ensuring seamless end-to-end analytics workflow.
 
---
+________________________________________
+
 
 ## Result :
 
 **Designed and implemented** an end-to-end customer sales analytics pipeline using SQL and Python, cleaning and transforming 1,000+ records to improve data quality and feature engineering.
 
 **Built predictive models** including Linear Regression (R²=0.127) for income, KMeans clustering (3 segments) for customer profiling, and ARIMA forecasting for 6-month wine sales, enabling data-driven marketing and sales strategies.
+
+________________________________________
