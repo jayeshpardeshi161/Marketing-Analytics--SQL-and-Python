@@ -300,3 +300,11 @@ A clear project objective and problem statement
 Fully cleaned and enriched data using SQL
 Robust Python modeling steps (regression, clustering, time series)
 Demonstrated insight extraction and business recommendations
+
+--
+
+## Result :
+
+**Designed and implemented** an end-to-end customer sales analytics pipeline using SQL and Python, cleaning and transforming 1,000+ records to improve data quality and feature engineering.
+
+**Built predictive models** including Linear Regression (R²=0.127) for income, KMeans clustering (3 segments) for customer profiling, and ARIMA forecasting for 6-month wine sales, enabling data-driven marketing and sales strategies.
