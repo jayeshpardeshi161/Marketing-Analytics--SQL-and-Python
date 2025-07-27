@@ -58,7 +58,7 @@ o	CustomerYear and CustomerMonth from Dt_Customer
 7.	Categorical Normalization: Trimmed and uppercased education/marital status
 8.	Segmentation: Grouped by customer attributes for insights
 ________________________________________
-## 🔢 8. Modeling (Python - Step 14 Implementation)
+## 🔢 8. Modeling (Python - Step Implementation)
 #### 📌 A. Linear Regression: Income Prediction
 1.	Goal: Predict customer income using features like spending, family size, and education
 2.	Tools: LinearRegression from scikit-learn
