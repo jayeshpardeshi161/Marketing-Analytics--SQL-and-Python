@@ -296,10 +296,21 @@ Output: R^2 Score: 0.127186987101495
 
 ## 📌 3. Final Verdict: ✅ Project Completed
 
-A clear project objective and problem statement
-Fully cleaned and enriched data using SQL
-Robust Python modeling steps (regression, clustering, time series)
-Demonstrated insight extraction and business recommendations
+1. A clear project objective and problem statement
+2. Fully cleaned and enriched data using SQL
+3. Robust Python modeling steps (regression, clustering, time series)
+4. Demonstrated insight extraction and business recommendations
+
+--
+
+1. Designed and implemented a comprehensive customer sales analytics pipeline combining SQL and Python, improving data accuracy and enabling predictive modeling on 1,000+ customer records.
+2. Cleaned and transformed raw sales data in SQL Server, resolving data inconsistencies and removing duplicates to enhance dataset quality by 100%.
+3. Engineered derived features such as total spend and profit margin to support in-depth customer segmentation and profitability analysis.
+4. Developed and validated a Linear Regression model to predict customer income with an R² score of 0.127, using demographic and purchase behavior data.
+5. Applied KMeans clustering to segment customers based on purchase patterns, identifying 3 distinct groups to target marketing strategies effectively.
+6. Built and deployed an ARIMA time series model forecasting monthly wine sales with 6-month horizon, supporting inventory and sales planning.
+7. Performed exploratory data analysis (EDA) and segmentation in SQL, uncovering key customer trends related to education, marital status, and spending habits.
+8. Exported and integrated cleaned SQL data into Python for modeling, ensuring seamless end-to-end analytics workflow.
 
 --
 
