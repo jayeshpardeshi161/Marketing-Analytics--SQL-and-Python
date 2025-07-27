@@ -258,6 +258,7 @@ Output: R^2 Score: 0.127186987101495
 <img width="1136" height="759" alt="Step 7 ARIMA Time Series" src="https://github.com/user-attachments/assets/9173a0c3-5941-42f4-9dc9-08e5da2bcaa3" />
 
 ✅ Project Summary – Customer Sales & Marketing Analytics
+
 | **Phase**                        | **Tasks Completed**                                                                                                    |
 | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | **1. Data Loading & Inspection** | ✔ Loaded CSV without headers<br>✔ Previewed shape and contents                                                         |
@@ -267,3 +268,35 @@ Output: R^2 Score: 0.127186987101495
 | **5. Clustering (Segmentation)** | ✔ Used KMeans to group customers by spending behavior<br>✔ Determined `k` via elbow method                             |
 | **6. Time Series Forecasting**   | ✔ Used ARIMA to forecast future wine spending based on customer acquisition dates                                      |
 | **7. Visualization**             | ✔ Visualized elbow curve, time series data, and regression results                                                     |
+
+## ✅ 📊 Project: Customer Sales & Marketing Analytics Using SQL and Python
+
+| **Objective**                                     | **Status**  | **What I Did**                                                                             |
+| ------------------------------------------------- | ----------- | -------------------------------------------------------------------------------------------- |
+| Data Cleaning using SQL                           | ✅ Completed | Cleaned, normalized, de-duplicated, and validated all fields in `superstore_data` using SSMS |
+| Feature Engineering in SQL                        | ✅ Completed | Created `TotalSpend`, `ProfitMargin`, `CustomerYear`, `CustomerMonth`                        |
+| Export Cleaned Data to CSV                        | ✅ Completed | Exported `superstore_cleaned.csv` from SSMS                                                  |
+| Load Data in Python                               | ✅ Completed | Used `pandas.read_csv()` to import the cleaned file                                          |
+| Linear Regression: Income Prediction              | ✅ Completed | Used `scikit-learn` for baseline regression, encoded categorical features                    |
+| KMeans Clustering: Customer Segmentation          | ✅ Completed | Used product spend features; chose `k=3` via elbow method; assigned cluster labels           |
+| ARIMA Time Series Forecast: Monthly Wine Spending | ✅ Completed | Built ARIMA(1,1,1) model, forecasted next 6 months; handled resampling frequency             |
+| EDA & Segmentation in SQL                         | ✅ Completed | Aggregated by education, marital status, and time; discovered key trends                     |
+| Optional Visualization (Power BI)                 | ❌ Skipped   | Clearly marked as optional and out of current project scope                                  |
+
+## 📋 2. Deliverables Checklist
+
+| **Deliverable**                       | **Tool**           | **Status** |
+| ------------------------------------- | ------------------ | ---------- |
+| Data Cleaning & EDA                   | SQL (SSMS)         | ✅ Done     |
+| Income Prediction (Linear Regression) | Python             | ✅ Done     |
+| Customer Segmentation (KMeans)        | Python             | ✅ Done     |
+| Time Series Forecasting (ARIMA)       | Python             | ✅ Done     |
+| Cleaned Dataset Export                | SQL → CSV → Python | ✅ Done     |
+| Optional Dashboard                    | Power BI           | ❌ Skipped  |
+
+## 📌 3. Final Verdict: ✅ Project Completed
+
+A clear project objective and problem statement
+Fully cleaned and enriched data using SQL
+Robust Python modeling steps (regression, clustering, time series)
+Demonstrated insight extraction and business recommendations
