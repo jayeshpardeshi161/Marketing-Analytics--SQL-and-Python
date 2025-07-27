@@ -572,3 +572,24 @@ print("Next 6 months forecast:")
 print(forecast)
 <img width="815" height="619" alt="ARIMA (Time Series) Forecast overall wine spending over time" src="https://github.com/user-attachments/assets/dd7cc034-9fb9-4e2a-a68f-c49020bf9dbd" />
 
+--
+
+## 📊 Project Step: Data Loading and Initial Inspection
+
+✅ Step 1: Load the Data (No Headers)
+I exported from SSMS 21 via "Select Top 1000 Rows", the CSV probably doesn't include column headers.
+
+| **Step No.** | **Objective**                    | **My Action (in Python)**                                                                                                             | **Explanation / Justification**                                                                                         |
+| ------------ | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| 1            | Import necessary libraries       | `import pandas as pd`                                                                                                                 | I imported the `pandas` library, which is essential for handling and analyzing structured data.                         |
+| 2            | Load dataset without headers     | `df = pd.read_csv(r"D:\Projects\Customer Sales & Marketing Analytics - SQL and Python\datasets\superstore_cleaned.csv", header=None)` | I loaded the dataset while specifying `header=None` because the CSV file does not contain predefined column headers.    |
+| 3            | Inspect the shape of the dataset | `print(df.shape)`                                                                                                                     | I checked the shape of the dataset to understand the number of rows and columns, which helps in planning further steps. |
+| 4            | Preview the data                 | `df.head()`                                                                                                                           | I viewed the first few records to get an idea of the data structure and contents, helping me identify potential issues. |
+
+<img width="1920" height="1080" alt="Screenshot of Column Names" src="https://github.com/user-attachments/assets/c0d7cc35-f0c1-48f0-aa71-ab867e8c0f13" />
+
+✅ Step 2: Add Meaningful Column Names
+| **Step No.** | **Objective**                            | **My Action (in Python)**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | **Explanation / Justification**                                                                                                                                       |
+| ------------ | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 5            | Assign descriptive column names manually | `python<br>df.columns = [<br>    'Customer_ID', 'Birth_Year', 'Education', 'Marital_Status', 'Income',<br>    'Kidhome', 'Teenhome', 'Dt_Customer', 'Recency', 'MntWines', 'MntFruits',<br>    'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds',<br>    'NumDealsPurchases', 'NumWebPurchases', 'NumCatalogPurchases',<br>    'NumStorePurchases', 'NumWebVisitsMonth', 'AcceptedCmp3', 'AcceptedCmp4',<br>    'AcceptedCmp5', 'AcceptedCmp1', 'AcceptedCmp2', 'Response'<br>]<br>df.head()` | I manually assigned meaningful column names based on a provided screenshot. This improves readability and ensures consistency when analyzing or visualizing the data. |
+
