@@ -433,144 +433,20 @@ ORDER BY CustYearMonth;
 
 SELECT * FROM SalesDB.dbo.superstore_data_cleaned;
 
+--
 
+## ✅ Exploratory Data Analysis & Cleaning Steps in SQL (SSMS21)
+| **Step No.** | **Objective**                                     | **My SQL Query**                                                                                                                                                                                                                                                                                                                                                  | **What I Did**                                                                                                                                                       |
+| ------------ | ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1            | Count total records in the dataset                | `sql<br>SELECT COUNT(*) AS TotalRows<br>FROM SalesDB.dbo.superstore_data;`                                                                                                                                                                                                                                                                                        | I checked the total number of records in the dataset to establish a baseline and verify data completeness.                                                           |
+| 2            | Profile categorical variables                     | `sql<br>SELECT <br>&nbsp;&nbsp;COUNT(DISTINCT Education) AS DistinctEducation,<br>&nbsp;&nbsp;COUNT(DISTINCT Marital_Status) AS DistinctMaritalStatuses<br>FROM SalesDB.dbo.superstore_data;`                                                                                                                                                                     | I identified the number of unique values in key categorical columns like `Education` and `Marital_Status` to understand their variability and use in later modeling. |
+| 3            | Check for missing/null values in important fields | `sql<br>SELECT <br>&nbsp;&nbsp;SUM(CASE WHEN Income IS NULL THEN 1 END) AS NullIncome,<br>&nbsp;&nbsp;SUM(CASE WHEN Dt_Customer IS NULL THEN 1 END) AS NullCustomerDate,<br>&nbsp;&nbsp;SUM(CASE WHEN Kidhome IS NULL THEN 1 END) AS NullKidhome,<br>&nbsp;&nbsp;SUM(CASE WHEN Teenhome IS NULL THEN 1 END) AS NullTeenhome<br>FROM SalesDB.dbo.superstore_data;` | I conducted null value checks for important numeric and date columns to ensure data quality before exporting or analyzing in Python.                                 |
+
+
+
+--
 
 <img width="1920" height="1080" alt="Screenshot of Column Names" src="https://github.com/user-attachments/assets/914c4592-1db5-4227-90b1-0fe34ca1fc9a" />
-
-
-## 🔧 Step-by-Step: Clean & Prep for ML in Jupyter
-
-#### ✅ Step 1: Load the Data (No Headers)
-I exported from SSMS 21 via "Select Top 1000 Rows", the CSV probably doesn't include column headers.
-
-import pandas as pd
-
-#### Load without headers
-df = pd.read_csv(r"D:\Software\For Other\AI\Data Science\All_Notes\Projects Notes\Projects\SQL project Market analysis\superstore_cleaned.csv", header=None)
-
-#### Optional: check shape
-print(df.shape)
-df.head()
-Output:
-(1000, 26)
-
-#### ✅ Step 2: Add Meaningful Column Names¶
-assign Column Names manually. Based on Screenshot of Column Names image :
-df.columns = [
-    'Customer_ID', 'Birth_Year', 'Education', 'Marital_Status', 'Income',
-    'Kidhome', 'Teenhome', 'Dt_Customer', 'Recency', 'MntWines', 'MntFruits',
-    'MntMeatProducts', 'MntFishProducts', 'MntSweetProducts', 'MntGoldProds',
-    'NumDealsPurchases', 'NumWebPurchases', 'NumCatalogPurchases', 
-    'NumStorePurchases', 'NumWebVisitsMonth', 'AcceptedCmp3', 'AcceptedCmp4',
-    'AcceptedCmp5', 'AcceptedCmp1', 'AcceptedCmp2', 'Response'
-]
-df.head()
-
-<img width="1205" height="744" alt="Assign Column Names manually  Based on Screenshot of Column Names image" src="https://github.com/user-attachments/assets/b563f07a-5f8c-46bf-b6aa-4a915bc908b0" />
-
-
-#### ✅ Step 3: Convert Date Column to datetime
-df['Dt_Customer'] = pd.to_datetime(df['Dt_Customer'])
-
-#### ✅ Step 4: Handle Missing or Negative Income
-# Replace negative income with NaN and drop them
-
-df['Income'] = df['Income'].apply(lambda x: x if x > 0 else None)
-df.dropna(subset=['Income'], inplace=True)
-
-### 🔢 PART 1: Linear Regression
-
-#### 🎯 Predict income using other features
-
-from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
-
-#### Encode categorical columns
-for col in ['Education', 'Marital_Status']:
-    df[col] = LabelEncoder().fit_transform(df[col])
-
-#### Features and target
-X = df[['Kidhome', 'Teenhome', 'Recency', 'MntWines', 'MntFruits',
-        'MntMeatProducts', 'MntFishProducts', 'MntGoldProds',
-        'NumDealsPurchases', 'NumWebPurchases', 'NumCatalogPurchases',
-        'NumStorePurchases', 'NumWebVisitsMonth', 'Education', 'Marital_Status']]
-y = df['Income']
-
-#### Train-test split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-#### Model
-lr = LinearRegression()
-lr.fit(X_train, y_train)
-
-print("R^2 Score:", lr.score(X_test, y_test))
-Output:
-R^2 Score: 0.127186987101495
-
-<img width="1170" height="572" alt="Linear Regression Score" src="https://github.com/user-attachments/assets/a691198b-981c-459a-ae76-b7db1b708528" />
-
-
-### 📊 PART 2: KMeans Clustering
-### 🎯 Group customers based on spending behavior
-import os
-os.environ["OMP_NUM_THREADS"] = "4"
-
-from sklearn.cluster import KMeans
-import matplotlib.pyplot as plt
-
-from sklearn.cluster import KMeans
-import matplotlib.pyplot as plt
-
-#### Cluster only on spend amounts
-X_kmeans = df[['MntWines', 'MntFruits', 'MntMeatProducts', 
-               'MntFishProducts', 'MntSweetProducts', 'MntGoldProds']]
-
-#### Elbow method to find best k
-inertia = []
-for k in range(1, 10):
-    kmeans = KMeans(n_clusters=k, random_state=42)
-    kmeans.fit(X_kmeans)
-    inertia.append(kmeans.inertia_)
-
-plt.plot(range(1, 10), inertia, marker='o')
-plt.title('Elbow Method')
-plt.xlabel('k')
-plt.ylabel('Inertia')
-plt.show()
-
-#### Fit with chosen k
-kmeans = KMeans(n_clusters=3, random_state=42)
-df['Cluster'] = kmeans.fit_predict(X_kmeans)
-
-df[['Cluster'] + X_kmeans.columns.tolist()].head()
-
-<img width="1013" height="671" alt="KMeans Clustering - Group customers based on spending behavior" src="https://github.com/user-attachments/assets/fd359050-287c-417f-9f6b-7644c45a759b" />
-
-
-#### 📈 PART 3: ARIMA (Time Series)
-#### 🎯 Forecast overall wine spending over time
-import matplotlib.pyplot as plt
-from statsmodels.tsa.arima.model import ARIMA
-import matplotlib.pyplot as plt
-from statsmodels.tsa.arima.model import ARIMA
-
-#### Group by date and sum wine spending, resample monthly with 'ME'
-df_ts = df.groupby('Dt_Customer')['MntWines'].sum().resample('ME').sum()
-
-#### Plot
-df_ts.plot(title='Monthly Wine Spending')
-plt.ylabel("Wine Spend ($)")
-plt.show()
-
-#### ARIMA Modeling
-model = ARIMA(df_ts, order=(1,1,1))  # (p,d,q)
-model_fit = model.fit()
-forecast = model_fit.forecast(steps=6)
-
-print("Next 6 months forecast:")
-print(forecast)
-<img width="815" height="619" alt="ARIMA (Time Series) Forecast overall wine spending over time" src="https://github.com/user-attachments/assets/dd7cc034-9fb9-4e2a-a68f-c49020bf9dbd" />
 
 --
 
