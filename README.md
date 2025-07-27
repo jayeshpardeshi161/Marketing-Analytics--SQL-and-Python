@@ -642,3 +642,14 @@ Output: R^2 Score: 0.127186987101495
 | 25           | Forecast next 6 months of wine spending | `forecast = model_fit.forecast(steps=6)`<br>`print("Next 6 months forecast:")`<br>`print(forecast)` | I used the trained ARIMA model to forecast wine spending for the next six months and printed the results to observe the predicted future values.                           |
 
 <img width="1136" height="759" alt="Step 7 ARIMA Time Series" src="https://github.com/user-attachments/assets/9173a0c3-5941-42f4-9dc9-08e5da2bcaa3" />
+
+✅ Project Summary – Customer Sales & Marketing Analytics
+| **Phase**                        | **Tasks Completed**                                                                                                    |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| **1. Data Loading & Inspection** | ✔ Loaded CSV without headers<br>✔ Previewed shape and contents                                                         |
+| **2. Data Preparation**          | ✔ Assigned meaningful column names<br>✔ Converted date column to `datetime`<br>✔ Handled missing/invalid income values |
+| **3. Feature Engineering**       | ✔ Encoded categorical variables                                                                                        |
+| **4. Predictive Modeling**       | ✔ Built and evaluated a Linear Regression model to predict income                                                      |
+| **5. Clustering (Segmentation)** | ✔ Used KMeans to group customers by spending behavior<br>✔ Determined `k` via elbow method                             |
+| **6. Time Series Forecasting**   | ✔ Used ARIMA to forecast future wine spending based on customer acquisition dates                                      |
+| **7. Visualization**             | ✔ Visualized elbow curve, time series data, and regression results                                                     |
