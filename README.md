@@ -632,4 +632,13 @@ Output: R^2 Score: 0.127186987101495
 
 <img width="1147" height="840" alt="Step 6 KMeans Clustering" src="https://github.com/user-attachments/assets/7e9ccdbb-fd11-4226-a61c-5815a80bfce6" />
 
+✅ Step 7: ARIMA (Time Series) – 🎯 Forecast Overall Wine Spending Over Time
+| **Step No.** | **Objective**                           | **My Action (in Python)**                                                                           | **What I Did**                                                                                                                                                             |
+| ------------ | --------------------------------------- | --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 21           | Import required libraries               | `import matplotlib.pyplot as plt`<br>`from statsmodels.tsa.arima.model import ARIMA`                | I imported `matplotlib` for plotting and `ARIMA` from `statsmodels` to build a time series model.                                                                          |
+| 22           | Prepare the time series data            | `python<br>df_ts = df.groupby('Dt_Customer')['MntWines'].sum().resample('ME').sum()`                | I grouped the data by customer join date (`Dt_Customer`), summed the wine spending, and resampled it by month-end ('ME') to create a monthly time series of wine spending. |
+| 23           | Visualize wine spending over time       | `python<br>df_ts.plot(title='Monthly Wine Spending')<br>plt.ylabel("Wine Spend ($)")<br>plt.show()` | I plotted the monthly wine spending to visually inspect seasonality, trends, or anomalies before applying forecasting methods.                                             |
+| 24           | Build and fit ARIMA model               | `python<br>model = ARIMA(df_ts, order=(1,1,1))<br>model_fit = model.fit()`                          | I instantiated and fitted an ARIMA model with parameters (p=1, d=1, q=1), which represent autoregressive, differencing, and moving average terms respectively.             |
+| 25           | Forecast next 6 months of wine spending | `forecast = model_fit.forecast(steps=6)`<br>`print("Next 6 months forecast:")`<br>`print(forecast)` | I used the trained ARIMA model to forecast wine spending for the next six months and printed the results to observe the predicted future values.                           |
 
+<img width="1136" height="759" alt="Step 7 ARIMA Time Series" src="https://github.com/user-attachments/assets/9173a0c3-5941-42f4-9dc9-08e5da2bcaa3" />
