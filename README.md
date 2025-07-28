@@ -388,7 +388,7 @@ ________________________________________
 
 ## What I Achieved
 
-**Developed** a customer income **prediction model** using **Linear Regression** in **Python**,** achieving an R² score of 0.127** and **reducing income estimation variance across demographic groups by 12%**.
+**Developed** a customer income **prediction model** using **Linear Regression** in **Python**,**achieving an R² score of 0.127** and **reducing income estimation variance across demographic groups by 12%**.
 
 **Engineered** customer segmentation using **KMeans clustering (k=3)**, enabling personalized marketing and **improving targeting precision by 35%**.
 
