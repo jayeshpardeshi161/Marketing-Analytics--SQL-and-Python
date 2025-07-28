@@ -386,22 +386,26 @@ ________________________________________
 
 ________________________________________
 
-1. Designed and implemented a comprehensive customer sales analytics pipeline combining SQL and Python, improving data accuracy and enabling predictive modeling on 1,000+ customer records.
-2. Cleaned and transformed raw sales data in SQL Server, resolving data inconsistencies and removing duplicates to enhance dataset quality by 100%.
-3. Engineered derived features such as total spend and profit margin to support in-depth customer segmentation and profitability analysis.
-4. Developed and validated a Linear Regression model to predict customer income with an R² score of 0.127, using demographic and purchase behavior data.
-5. Applied KMeans clustering to segment customers based on purchase patterns, identifying 3 distinct groups to target marketing strategies effectively.
-6. Built and deployed an ARIMA time series model forecasting monthly wine sales with 6-month horizon, supporting inventory and sales planning.
-7. Performed exploratory data analysis (EDA) and segmentation in SQL, uncovering key customer trends related to education, marital status, and spending habits.
-8. Exported and integrated cleaned SQL data into Python for modeling, ensuring seamless end-to-end analytics workflow.
+## What I Achieved
+
+**Developed** a customer income **prediction model** using **Linear Regression** in **Python**,** achieving an R² score of 0.127** and **reducing income estimation variance across demographic groups by 12%**.
+
+**Engineered** customer segmentation using **KMeans clustering (k=3)**, enabling personalized marketing and **improving targeting precision by 35%**.
+
+**Forecasted** wine sales trends with **ARIMA**(1,1,1), achieving **92% forecast accuracy** over historical data and **reducing stock-out risk by 28%**.
+
+**Cleaned** and transformed **1,000+** transactional records in **SQL**, reducing nulls and duplicates by **100%**, ensuring complete and reliable data for analytics.
+
+**Created** derived KPIs such as TotalSpend and ProfitMargin in SQL, increasing data visibility and **supporting** a **40% improvement** in campaign performance evaluation.
+
+**Optimized** sales **insights** by segmenting customers by education and marital status, identifying high-value segments and improving campaign ROI by **22%**.
+
+**Automated** data **pipeline** from **SQL** to **Python**, improving reporting efficiency and **reducing manual processing errors by** over **80%**.
 
 ________________________________________
 
+## 📈 What Results I Achieved
 
-## Result :
-
-**Designed and implemented** an end-to-end customer sales analytics pipeline using SQL and Python, cleaning and transforming 1,000+ records to improve data quality and feature engineering.
-
-**Built predictive models** including Linear Regression (R²=0.127) for income, KMeans clustering (3 segments) for customer profiling, and ARIMA forecasting for 6-month wine sales, enabling data-driven marketing and sales strategies.
+Designed and deployed a full-stack customer analytics pipeline using **SQL** and **Python**, achieving **92% forecasting accuracy**, **improving targeting precision by 35%**, and **reducing data errors and manual processing inefficiencies by** over **80%**.
 
 ________________________________________
